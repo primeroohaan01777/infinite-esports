@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Player Registration</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0a0a0a;
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffcc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #00ffcc;
+      text-shadow: 0 0 15px #00ffcc;
+    }
+
+    .warning {
+      font-size: 14px;
+      color: #ff5555;
+      margin-bottom: 20px;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    form {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffcc;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 300px;
+    }
+
+    input {
+      background: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #00ffcc;
+      box-shadow: 0 0 8px #00ffcc;
+    }
+
+    button {
+      background: #00ff88;
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00ffaa;
+      box-shadow: 0 0 10px #00ffcc;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      width: 320px;
+      text-align: center;
+      display: none;
+    }
+
+    .success {
+      background: #002a00;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+
+    .error {
+      background: #2a0000;
+      color: #f00;
+      border: 1px solid #f00;
+    }
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #00ffcc;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffaa, 0 0 30px #00ffaa;
+  }
+  100% {
+    box-shadow: 0 0 10px #00ffcc;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <h1>টুর্নামেন্ট রেজিস্ট্রেশন</h1>
+
+  <div style="
+  background-color: #2a0000;
+  color: #ff8080;
+  border: 1px solid #f00;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  max-width: 350px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #f00;
+">
+  ⚠️ <b>অনুগ্রহ করে আগে বিকাশ করুন</b>, তারপর Transaction ID সহ ফর্মটি পূরণ করুন।<br><br>
+  ❗ ভুল তথ্য দিলে <b>রেজিস্ট্রেশন বাতিল</b> হবে।<br><br>
+  <i>(Transaction ID পাওয়া যাবে বিকাশ করার পর মোবাইলে আসা মেসেজ থেকে)</i>
+</div>
+
+
+  <form onsubmit="handleSubmit(event)">
+    
+    <input type="text" id="team" placeholder="নাম" />
+    <input type="text" id="name" placeholder="আপনার ইউজারনেম" required />
+    <input type="text" id="gameid" placeholder="গেম আইডি" required />
+    <input type="text" id="bkash" placeholder="বিকাশ নম্বর" required />
+    <input type="text" id="trx" placeholder="Transaction ID" required />
+    
+    <button type="submit">রেজিস্টার করুন</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzLKmmug5gAe2l0KTGFzBoA8YE0I5J9zySWXBYWO4a0TXaSH5n8fA_FkTx6J6UpDlzF/exec';
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.className = '';
+      resultDiv.innerHTML = '⏳ প্রসেসিং চলছে... অনুগ্রহ করে অপেক্ষা করুন...';
+
+      const data = {
+        name: document.getElementById('name').value,
+        gameid: document.getElementById('gameid').value,
+        bkash: document.getElementById('bkash').value,
+        trx: document.getElementById('trx').value,
+        team: document.getElementById('team').value
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+  resultDiv.className = 'success';
+  resultDiv.innerHTML = `
+    <div style="
+      padding: 20px;
+      border: 2px dashed #00ffcc;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #001f1f, #003333);
+      color: #00ffcc;
+      font-size: 15px;
+      line-height: 1.6;
+      text-shadow: 0 0 5px #00ffcc;
+      animation: pulse 2s infinite;
+    ">
+      🔄 <b style="font-size:18px;">আপনার তথ্য যাচাই করা হচ্ছে...</b><br><br>
+      🔎 নিচের লিংকে ক্লিক করে আপনার রেজিস্ট্রেশন তথ্য ও কনফার্মেশন চেক করুন:<br><br>
+      <a href="confirmation.html" 
+   target="_blank"
+   style="color: #00ffaa; text-decoration: underline; font-weight: bold;">
+   ➡️ রেজিস্ট্রেশন কনফার্মেশন দেখুন
+</a>
+
+    </div>
+  `;
+
+  document.querySelector('form').reset();
+})
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Confirmation - Infinite eSports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #000 url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1') no-repeat center center fixed;
+      background-size: cover;
+      color: #0f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px lime;
+      text-align: center;
+    }
+
+    h1 {
+      color: lime;
+      font-size: 28px;
+      text-shadow: 0 0 10px lime;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: limegreen;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background: #00ff88;
+      color: black;
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>✅ যাচাই করা হচ্ছে...</h1>
+    <p class="blink">আপনার রেজিস্ট্রেশন যাচাই করা হচ্ছে। অনুগ্রহ করে কিছুক্ষণ অপেক্ষা করুন।</p>
+    
+    <p>রেজিস্ট্রেশন তালিকা দেখতে নিচের বোতামে ক্লিক করুন:</p>
+    <a href="confirmation-list.html" target="_blank">
+      📋 রেজিস্ট্রেশন তালিকা দেখুন
+    </a>
+  </div>
+
+</body>
+</html>

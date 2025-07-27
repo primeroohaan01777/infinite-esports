@@ -1,0 +1,173 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background: #000;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ffe1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #00ffe1;
+  text-shadow: 0 0 10px #00ffe1;
+}
+
+/* Poster Section */
+.poster-section {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.poster-img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffe1;
+}
+
+/* Details Section */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffcc55;
+}
+
+h1 {
+  text-align: center;
+  color: #00ffe0;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+.rules .rule {
+  background: #222;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-left: 5px solid #00ffe0;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.rules .rule:hover {
+  background: #2b2b2b;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.rules .rule h2 {
+  color: #00ff99;
+  margin-bottom: 10px;
+}
+
+.special {
+  background: #191919;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 1px dashed #ff0077;
+}
+
+.special h3 {
+  color: #ff3377;
+  margin-bottom: 10px;
+}
+
+.special .goodluck {
+  color: #00ffaa;
+  margin-top: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffaa;
+}
+
+.poster {
+  margin-top: 40px;
+  text-align: center;
+  border: 2px dashed #555;
+  padding: 30px;
+  border-radius: 8px;
+  color: #aaa;
+  font-style: italic;
+}
+
+.register {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.register-btn {
+  display: inline-block;
+  background: #00ffcc;
+  color: #000;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00ffcc;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #00ffaa;
+  box-shadow: 0 0 20px #00ffaa;
+}
+
+
+.register-btn:hover {
+  background-color: #00ccc1;
+  box-shadow: 0 0 20px #00ffe1, 0 0 30px #00ffe1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #777;
+  font-size: 14px;
+  margin-top: 50px;
+}
